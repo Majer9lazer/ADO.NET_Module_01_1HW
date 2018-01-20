@@ -32,6 +32,9 @@ namespace ADO.NET_Module_01_HW
             TablesStopReasonListView.ItemsSource = db.TablesStopReasons.ToList();
             TrackMeterListView.ItemsSource = db.TrackMeters.ToList();
         
+
+
+
         }
 
 
