@@ -23,18 +23,16 @@ namespace ADO.NET_Module_01_HW
     /// </summary>
     public partial class MainWindow : Window
     { 
+
         private  DB db= new DB();
+         
         public MainWindow()
         {
-            InitializeComponent();
-            TablesListView.ItemsSource = db.newEquipments.ToList();
+
+                InitializeComponent();
             TablesManufacturerListView.ItemsSource = db.TablesManufacturers.ToList();
+            TablesListView.ItemsSource = db.newEquipments.ToList();
             TablesStopReasonListView.ItemsSource = db.TablesStopReasons.ToList();
-            TrackMeterListView.ItemsSource = db.TrackMeters.ToList();
-        
-
-
-
         }
 
 
@@ -42,13 +40,15 @@ namespace ADO.NET_Module_01_HW
         {
             ForwrapPanelDefinbition.Height = new GridLength(40);
             TablesManufacturerWrapPanel.Visibility = Visibility.Visible;
+           
+       
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             try
             {
-
+               
                 TablesManufacturer t = (TablesManufacturer) TablesManufacturerListView.SelectedItem;
                 db.Entry(t).State = EntityState.Modified;
                 db.SaveChanges();
@@ -61,12 +61,14 @@ namespace ADO.NET_Module_01_HW
 
         private void UIElement_OnGotFocus1(object sender, RoutedEventArgs e)
         {
+            TablesListView.ItemsSource = db.newEquipments.ToList();
             ForwrapPanelDefinbition.Height = new GridLength(0);
             TablesManufacturerWrapPanel.Visibility = Visibility.Hidden;
         }
 
         private void UIElement_OnGotFocus2(object sender, RoutedEventArgs e)
         {
+            TablesStopReasonListView.ItemsSource = db.TablesStopReasons.ToList();
             ForwrapPanelDefinbition.Height = new GridLength(0);
             TablesManufacturerWrapPanel.Visibility = Visibility.Hidden;
         }
@@ -75,6 +77,14 @@ namespace ADO.NET_Module_01_HW
         {
             ForwrapPanelDefinbition.Height = new GridLength(0);
             TablesManufacturerWrapPanel.Visibility = Visibility.Hidden;
+            var tracklist = db.TrackMeters.Select(s => new
+            {
+                s.intEquipmentID,
+                s.dMeterDate,
+                s.intMeterReading,
+                s.intHoursHoursOperation
+            });
+            TrackMeterListView.ItemsSource = tracklist.ToList();
         }
     }
 }

@@ -67,13 +67,13 @@
                     <ListView.View>
                         <GridView >
                             <GridView.Columns>
-                                <GridViewColumn  Header="intMeteredId" DisplayMemberBinding="{Binding Path=intMeteredId}"></GridViewColumn>
+                                <!--<GridViewColumn  Header="intMeteredId" DisplayMemberBinding="{Binding Path=intMeteredId}"></GridViewColumn>-->
                                 <GridViewColumn Header="intEquipmentID" DisplayMemberBinding="{Binding Path=intEquipmentID}"></GridViewColumn>
                                 <GridViewColumn Header="dMeterDate" DisplayMemberBinding="{Binding Path=dMeterDate}"></GridViewColumn>
                                 <GridViewColumn Header="intMeterReading" DisplayMemberBinding="{Binding Path=intMeterReading}"></GridViewColumn>
-                              
-                                <GridViewColumn Header="boolMeterReplaced" DisplayMemberBinding="{Binding Path=boolMeterReplaced}"></GridViewColumn>
+                                <!--<GridViewColumn Header="boolMeterReplaced" DisplayMemberBinding="{Binding Path=boolMeterReplaced}"></GridViewColumn>-->
                                 <GridViewColumn Header="intTypeMetered" DisplayMemberBinding="{Binding Path=intTypeMetered}"></GridViewColumn>
+                                <GridViewColumn Header="intHoursHoursOperation" DisplayMemberBinding="{Binding Path=intHoursHoursOperation}"></GridViewColumn>
                           
                             </GridView.Columns>
                         </GridView>
